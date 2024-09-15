@@ -1,0 +1,43 @@
+def analizar_cadena(cadena):
+    letras = 0
+    numeros = 0
+    espacios = 0
+
+    contiene_letra = False
+    contiene_numero = False
+
+    for char in cadena:
+        if char.isalpha(): 
+            letras += 1
+            contiene_letra = True
+        elif char.isdigit():  
+            numeros += 1
+            contiene_numero = True
+        elif char.isspace():  
+            espacios += 1
+
+    print(f"Total de letras: {letras}")
+    print(f"Total de números: {numeros}")
+    print(f"Total de espacios: {espacios}")
+
+    if letras > numeros:
+        print("Clasificación: Predominan Letras")
+    elif numeros > letras:
+        print("Clasificación: Predominan Números")
+    elif letras == numeros and letras > 0 and numeros > 0:
+        print("Clasificación: Equilibrada")
+    else:
+        print("Clasificación: Incompleta")
+
+    if len(cadena) > 10:
+        print("Mensaje adicional: Cadena Larga")
+    elif len(cadena) < 5:
+        print("Mensaje adicional: Cadena Corta")
+
+    if contiene_letra and contiene_numero:
+        print("La cadena contiene al menos una letra y un número.")
+    else:
+        print("La cadena no contiene al menos una letra y un número.")
+
+cadena_ingresada = input("Ingrese una cadena de texto: ")
+analizar_cadena(cadena_ingresada)
